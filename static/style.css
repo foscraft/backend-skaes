@@ -2,21 +2,21 @@
     padding: 5px 120px;
     width: 150px;
     height: 70px;
-    background-color: #236B8E; 
+    background-color: #d7edf5; 
 }
 
 .border{
     padding: 80px 50px;
-    width: 400px;
-    height: 450px;
+    width: 390px;
+    height: 395px;
     border: 1px solid #236B8E;
     border-radius: 0px;
-    background-color: #9AC0CD;
+    background-color: #d7edf5;
 }
 
 .btn {
     padding: 10px 40px;
-    background-color: #236B8E; 
+    background-color: #0c0a86; 
     color: #FFFFFF;
     font-family: chilanka;
     font-weight: bold;
@@ -25,26 +25,26 @@
 
 .textbox{
     padding: 10px 40px;
-    background-color: #236B8E; 
-    color: #FFFFFF;
+    background-color: #e0e2e2; 
+    color: #0a0808;
     border-radius: 10px;
 }
       
 ::placeholder {
-    color: #FFFFFF;
+    color: #534e4e;
     opacity: 1;
     font-family: chilanka;
     font-weight: bold;
 }
 
 .word{
-    color: #FFFFFF;
+    color: #2f17b4;
     font-family: chilanka;
     font-weight: bold;
 }
 
 .bottom{
-    color: #236B8E;
+    color: #3124a7;
     font-family: chilanka;
     font-weight: bold;
 }

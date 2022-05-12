@@ -1,8 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
 import re
+from create_db2 import create_database
+import secrets
 
 app = Flask(__name__)
+secret = secrets.token_urlsafe(32)
+app.secret_key = secret
 
 @app.route('/')
 @app.route('/login', methods=['GET', 'POST'])
@@ -11,14 +15,14 @@ def login():
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         username = request.form['username']
         password = request.form['password']
-        conn = sqlite3.connect('app_database')
+        create_database()
+        conn = sqlite3.connect('n_database')
         c = conn.cursor()
         c.execute("SELECT * FROM users_table WHERE username = ? AND password = ?", (username, password))
         acc = c.fetchone()
         if acc:
             session['loggedin'] = True
-            session['username'] = acc['username']
-            session['id'] = acc['id']
+            session['username'] = username
             message = 'You are now logged in'
             #return redirect(url_for('skae.home'))
             return render_template('index.html', message=message)
@@ -41,7 +45,7 @@ def register():
         username = request.form['username']
         password = request.form['password']
         email = request.form['email']
-        conn = sqlite3.connect('app_database')
+        conn = sqlite3.connect('n_database')
         c = conn.cursor()
         c.execute("SELECT * FROM users_table WHERE username = ?", (username,))
         acc = c.fetchone()
